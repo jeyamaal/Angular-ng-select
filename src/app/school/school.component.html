@@ -1,0 +1,51 @@
+<p>
+  school works!
+</p>
+<select class="selectpicker">
+  <option>Mustard</option>
+  <option>Ketchup</option>
+  <option>Relish</option>
+</select>
+
+<form (ngSubmit)="onSubmit()" [formGroup]="schoolForm">
+
+
+   <!-- <ng-container *ngFor="let user of data">
+    <p>{{user.name}}</p>
+    <p>{{user.username}} </p>
+  </ng-container>  -->
+
+ <br><br>
+ 
+  <!-- Default Html => Load WebService Data in OptionField -Worked  -->
+  <select multiple>
+      <option  *ngFor="let user of data" [value]="user.name"> {{user.username}} </option>
+  </select> 
+
+  <br><br>
+
+  <!-- Select Picker not worked in option field -->
+  <select multiple class="selectpicker" items="data">
+      <option  *ngFor="let user of data" [value]="user.name"> {{user.username}} </option>
+  </select>
+
+  <br>
+  <br>
+
+  
+  <ng-select [searchable]="true" [items]="data"  bindValue="id" bindLabel="name" formControlName="searchData" 
+  placeholder="Select Name" ></ng-select>
+
+  <br>
+  <br>
+
+ <!-- Sample Example for ng-select for cities data -->
+ <ng-select [items]="cities" bindLabel="name" bindValue="id" [multiple]="true" placeholder="Select cities"
+   clearAllText="Clear" >
+ </ng-select>
+
+ <br><br>
+
+ <button type="submit">Submit</button>
+
+</form>
